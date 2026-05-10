@@ -455,6 +455,25 @@ function expandTuneMelody(tune, totalSteps) {
   return expanded;
 }
 
+function createGuideMelody(answer, patternIndex = 0) {
+  const shapes = [
+    [0, 1, 2, 1],
+    [2, 1, 0, 1],
+    [0, 2, 1, 2],
+    [1, 2, 0, 2],
+  ];
+  const shape = shapes[patternIndex % shapes.length];
+
+  return answer.flatMap((chord, chordIndex) => {
+    const tones = getChordNotes(chord, 4).map(fitNoteToPianoRoll);
+    return shape.map((toneIndex, index) => ({
+      note: tones[toneIndex % tones.length],
+      step: chordIndex * 4 + index,
+      duration: index === 3 ? 1.35 : 0.85,
+    }));
+  });
+}
+
 function getCanonMelody() {
   return [
     { note: "E5", step: 0, duration: 0.85 },
@@ -495,10 +514,9 @@ function getCanonMelody() {
 const QUESTIONS = QUESTION_DATA.map((question, index) => ({
   ...question,
   ...(() => {
-    const totalSteps = question.answer.length * 4;
     if (question.demoPattern === "canon") {
       return {
-        bpm: 84,
+        bpm: 132,
         demoTitle: "カノンのバイオリン風分散和音",
         reference: "メロディ例: パッヘルベルのカノンの有名な分散和音部分をCメジャーへ移調",
         demoNote:
@@ -507,14 +525,13 @@ const QUESTIONS = QUESTION_DATA.map((question, index) => ({
       };
     }
 
-    const tune = PUBLIC_DOMAIN_TUNES[question.tuneKey || TUNE_ROTATION[index % TUNE_ROTATION.length]];
     return {
-      demoTitle: `${tune.title}で聴くコード進行`,
-      reference: tune.reference,
-      bpm: tune.bpm,
+      demoTitle: "コードトーンで聴く進行デモ",
+      reference: "メロディ例: 正解コードの構成音だけで作った確認フレーズ",
+      bpm: question.answer.length >= 7 ? 112 : 96,
       demoNote:
-        "知っているメロディをコード進行に乗せ、響きのキャラクターを覚えやすくしています。",
-      melody: expandTuneMelody(tune, totalSteps),
+        "既存曲を無理に乗せず、各コードに本当に合う音だけを鳴らして響きを確認できます。",
+      melody: createGuideMelody(question.answer, index),
     };
   })(),
 }));
@@ -707,6 +724,28 @@ function getFeatureHint(selected, answer) {
   }
 
   return "選んだ特徴の数は合っています。似た言葉同士を入れ替えて考えてみましょう。";
+}
+
+function getProgressionGuide(question, mode) {
+  const first = question.answer[0];
+  const last = question.answer[question.answer.length - 1];
+  const seventhCount = question.answer.filter((chord) => chord.includes("7")).length;
+  const minorCount = question.answer.filter((chord) => /m/.test(chord) && !chord.includes("maj")).length;
+
+  if (mode === "feature") {
+    return [
+      `選ぶ特徴は${question.features.length}個`,
+      seventhCount > 0 ? "7th系コードの色気や緊張感に注目" : "明るさと暗さの切り替わりに注目",
+      minorCount > 0 ? "マイナーコードが作る陰りを聴く" : "メジャーコード中心の安定感を聴く",
+    ];
+  }
+
+  return [
+    `コード数は${question.answer.length}個`,
+    `最初は ${first}`,
+    `最後は ${last}`,
+    seventhCount > 0 ? "7th系コードが出たら、次へ進みたがる感じを探す" : "まず低音が上がる/下がる流れを意識する",
+  ];
 }
 
 function App() {
@@ -907,6 +946,8 @@ function SortQuiz({
         <h2>{question.title}</h2>
       </div>
 
+      <GuidePanel items={getProgressionGuide(question, "sort")} />
+
       <div className="answer-lane" aria-label="回答欄">
         {selectedChords.length === 0 ? (
           <span className="placeholder">コードをタップして並べよう</span>
@@ -972,6 +1013,8 @@ function FeatureQuiz({
         <h2>{question.answer.join(" → ")}</h2>
       </div>
 
+      <GuidePanel items={getProgressionGuide(question, "feature")} />
+
       <div className="feature-grid" aria-label="特徴パネル">
         {FEATURE_POOL.map((feature) => {
           const selected = selectedFeatures.includes(feature);
@@ -1002,6 +1045,16 @@ function FeatureQuiz({
         onNext={onNext}
       />
     </>
+  );
+}
+
+function GuidePanel({ items }) {
+  return (
+    <div className="guide-panel" aria-label="問題のヒント">
+      {items.map((item) => (
+        <span key={item}>{item}</span>
+      ))}
+    </div>
   );
 }
 

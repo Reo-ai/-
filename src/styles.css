@@ -191,6 +191,29 @@ h2 {
   margin-bottom: 22px;
 }
 
+.guide-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -8px 0 18px;
+  padding: 12px;
+  border: 1px solid rgba(45, 48, 63, 0.12);
+  border-radius: 14px;
+  background: #f5fbff;
+}
+
+.guide-panel span {
+  display: inline-grid;
+  place-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #3f5363;
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
 .answer-lane {
   display: flex;
   flex-wrap: wrap;
