@@ -25,6 +25,8 @@ button {
 }
 
 .app-shell {
+  width: 100%;
+  overflow-x: hidden;
   min-height: 100svh;
   padding: clamp(16px, 4vw, 36px);
   background:
@@ -41,8 +43,10 @@ button {
 .quiz-stage {
   position: relative;
   width: min(100%, 980px);
+  min-width: 0;
   margin: 0 auto;
-  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: visible;
   border: 1px solid rgba(38, 39, 53, 0.11);
   border-radius: 28px;
   padding: clamp(18px, 4vw, 34px);
@@ -175,6 +179,8 @@ h2 {
 }
 
 .question-card {
+  width: 100%;
+  min-width: 0;
   overflow: visible;
   min-height: 520px;
   border: 1px solid rgba(34, 33, 41, 0.1);
@@ -386,6 +392,8 @@ h2 {
 }
 
 .result-box {
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   scroll-margin: 18px;
   border-radius: 18px;
@@ -466,6 +474,8 @@ h2 {
 }
 
 .daw-panel {
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   margin-top: 16px;
   overflow: hidden;
@@ -559,6 +569,9 @@ h2 {
 
 .timeline {
   --total-steps: 16;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   display: grid;
   gap: 10px;
   padding: 14px;
@@ -582,6 +595,7 @@ h2 {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: minmax(88px, 1fr);
+  width: max-content;
   min-width: calc(var(--total-steps) * 26px);
   gap: 6px;
 }
@@ -608,6 +622,7 @@ h2 {
 .piano-roll {
   display: grid;
   grid-template-columns: 46px minmax(calc(var(--total-steps) * 26px), 1fr);
+  width: max-content;
   min-width: calc(var(--total-steps) * 26px + 46px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
