@@ -9,7 +9,7 @@ const QUESTION_DATA = [
     features: ["明るい", "切ない", "王道感"],
     explanation:
       "Cはトニックで、最初に明るく安定した家のような場所を作ります。Gはドミナントで前へ進む力を出し、Amに行くとCと共通音を持ちながらマイナーの切なさへ少し陰ります。EmもCと近い音を持つため急に暗くなりすぎず、最後にFへ進むとサブドミナントの広がりが出ます。安定したCから始まり、Gで動き、AmとEmで切なさを足し、Fで開けるので、明るさと切なさが両立しやすい定番進行です。",
-    tuneKey: "twinkle",
+    demoTuneKey: "twinkle",
   },
   {
     title: "カノン進行を完成させよう",
@@ -27,7 +27,7 @@ const QUESTION_DATA = [
     features: ["疾走感", "ドラマチック", "切ない"],
     explanation:
       "Amから始まるので最初に切なさが出ます。Fで景色が広がり、Gで強く前へ進む力が生まれ、Cで明るく着地します。暗い場所から明るい場所へ抜ける流れが短い周期で回るため、疾走感とドラマチックさを作りやすい進行です。",
-    tuneKey: "ode",
+    demoTuneKey: "ode",
   },
   {
     title: "丸サ進行を完成させよう",
@@ -44,6 +44,7 @@ const QUESTION_DATA = [
     features: ["明るい", "安定感", "王道感"],
     explanation:
       "Cで安定し、Amで少し切なさを混ぜ、Fで広がり、GでCへ戻る準備をします。トニックから近い代理コードを通って戻るため、初心者にも分かりやすい明るい循環です。",
+    demoTuneKey: "twinkle",
   },
   {
     title: "50s進行を完成させよう",
@@ -51,6 +52,7 @@ const QUESTION_DATA = [
     features: ["明るい", "王道感", "安定感"],
     explanation:
       "CからAmは同じ音を多く持つので自然につながります。Dmはサブドミナント系の準備、GはドミナントとしてCへ帰る力を作ります。古いポップスらしい安心感が出る進行です。",
+    demoTuneKey: "auld",
   },
   {
     title: "切ない下降進行を完成させよう",
@@ -86,6 +88,7 @@ const QUESTION_DATA = [
     features: ["爽やか", "切ない", "王道感"],
     explanation:
       "FからGで明るく上がり、EmからAmで少し陰る流れです。前半の上昇感と後半のマイナー感が合わさり、爽やかだけど少し切ない雰囲気になります。",
+    demoTuneKey: "ode",
   },
   {
     title: "感動バラード進行を完成させよう",
@@ -93,6 +96,7 @@ const QUESTION_DATA = [
     features: ["感動的", "明るい", "安定感"],
     explanation:
       "FとGで期待感を高め、Cでしっかり解決します。最後にAmへ進むことで余韻に少し切なさが混ざり、バラードらしい感動が作りやすくなります。",
+    demoTuneKey: "amazing",
   },
   {
     title: "明るい締め進行を完成させよう",
@@ -100,6 +104,7 @@ const QUESTION_DATA = [
     features: ["明るい", "安定感", "王道感"],
     explanation:
       "Fは広がり、GはCへ戻る力、Cは安定です。サブドミナントからドミナント、トニックへ向かうため、終わった感じが分かりやすく出ます。",
+    demoTuneKey: "ode",
   },
   {
     title: "暗いロック進行を完成させよう",
@@ -107,6 +112,7 @@ const QUESTION_DATA = [
     features: ["暗い", "疾走感", "切ない"],
     explanation:
       "AmからG、Fへ下がることで暗さが出ますが、最後にGへ戻るので止まらず次へ進む力が残ります。ロックやアニメ系にも合いやすい流れです。",
+    demoTuneKey: "greensleeves",
   },
   {
     title: "浮遊感のある進行を完成させよう",
@@ -128,6 +134,7 @@ const QUESTION_DATA = [
     features: ["明るい", "安定感", "爽やか"],
     explanation:
       "Cで始まり、Fで景色を広げ、Gで戻る力を作り、Cへ帰ります。トニックへきれいに戻るため、希望のある明るさが出ます。",
+    demoTuneKey: "twinkle",
   },
   {
     title: "しっとりマイナー進行を完成させよう",
@@ -135,6 +142,7 @@ const QUESTION_DATA = [
     features: ["切ない", "穏やか", "感動的"],
     explanation:
       "Amで切なさを出し、Dmでさらに深め、GからCへ明るく解決します。暗さから明るさへ抜けるため、しっとりした感動につながります。",
+    demoTuneKey: "amazing",
   },
   {
     title: "ドラマチックな転回進行を完成させよう",
@@ -149,6 +157,7 @@ const QUESTION_DATA = [
     features: ["疾走感", "切ない", "ドラマチック"],
     explanation:
       "FからGで上がる期待感を作り、Amへ着地すると明るくなりきらない切なさが残ります。同じAmを続けることで感情を押し出す力が出ます。",
+    demoTuneKey: "ode",
   },
   {
     title: "ロックのパワー進行を完成させよう",
@@ -156,6 +165,7 @@ const QUESTION_DATA = [
     features: ["明るい", "疾走感", "王道感"],
     explanation:
       "Cで始まり、Gで勢いを出し、Fで広げ、もう一度Gで次へ進みます。解決しきらずにGで押すので、前進感が強くなります。",
+    demoTuneKey: "london",
   },
   {
     title: "泣きの進行を完成させよう",
@@ -177,6 +187,7 @@ const QUESTION_DATA = [
     features: ["穏やか", "明るい", "安定感"],
     explanation:
       "CとFの行き来は素朴で分かりやすい広がりを作ります。最後のGが次のCへ戻る力を持つので、歌いやすいフォーク風の流れになります。",
+    demoTuneKey: "mary",
   },
   {
     title: "ジャジーな循環進行を完成させよう",
@@ -219,6 +230,7 @@ const QUESTION_DATA = [
     features: ["感動的", "ドラマチック", "安定感"],
     explanation:
       "F、G、Em、Amで感情を高め、Dm、G、Cでサブドミナント、ドミナント、トニックへ解決します。長い旅からCへ帰るような終止感が出ます。",
+    demoTuneKey: "auld",
   },
 ];
 
@@ -262,8 +274,6 @@ const NOTE_OFFSETS = {
 
 const SEMITONE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 const PITCH_ROWS = ["A5", "G#5", "G5", "F#5", "F5", "E5", "D#5", "D5", "C#5", "C5", "B4", "A#4", "A4", "G#4", "G4", "F#4", "F4", "E4", "D#4", "D4", "C#4", "C4"];
-const TUNE_ROTATION = ["twinkle", "ode", "sakura", "auld", "amazing", "greensleeves", "london", "mary"];
-
 const PUBLIC_DOMAIN_TUNES = {
   twinkle: {
     title: "きらきら星",
@@ -455,6 +465,20 @@ function expandTuneMelody(tune, totalSteps) {
   return expanded;
 }
 
+function getFamousTuneDemo(question) {
+  const tune = PUBLIC_DOMAIN_TUNES[question.demoTuneKey];
+  if (!tune) return null;
+
+  return {
+    demoTitle: `${tune.title}で聴く進行デモ`,
+    reference: `${tune.reference} / このコード進行向けに伴奏を合わせた学習デモ`,
+    bpm: tune.bpm,
+    demoNote:
+      "メロディは有名曲の短い抜粋、伴奏はこの問題の正解コード進行です。原曲の伴奏そのものではなく、響きの比較用です。",
+    melody: expandTuneMelody(tune, question.answer.length * 4),
+  };
+}
+
 function createGuideMelody(answer, patternIndex = 0) {
   const shapes = [
     [0, 1, 2, 1],
@@ -524,6 +548,9 @@ const QUESTIONS = QUESTION_DATA.map((question, index) => ({
         melody: getCanonMelody(),
       };
     }
+
+    const famousTuneDemo = getFamousTuneDemo(question);
+    if (famousTuneDemo) return famousTuneDemo;
 
     return {
       demoTitle: "コードトーンで聴く進行デモ",
